@@ -27,7 +27,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [frontendmentor]()
+- Solution URL: [frontendmentor](https://www.frontendmentor.io/solutions/nft-preview-card-component-rad_PZOaEE)
 - Live Site URL: [github](https://manannan297.github.io/fm-nft-preview-card-component/)
 
 ## My process
