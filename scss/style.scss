@@ -1,0 +1,200 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap");
+
+:root {
+  --color-soft-blue: hsl(215, 51%, 70%);
+  --color-cyan: hsl(178, 100%, 50%);
+  --color-dark-blue-main: hsl(217, 54%, 11%); // (main BG)
+  --color-dark-blue-card: hsl(216, 50%, 16%); // (card BG)
+  --color-dark-blue-line: hsl(215, 32%, 27%); //(line)
+  --color-white: hsl(0, 0%, 100%);
+  --font-base: "Outfit", sans-serif;
+  --alpha: 0.75;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-base);
+  font-size: 0.9375rem;
+  font-weight: 400;
+  line-height: 1.2;
+  background-color: var(--color-dark-blue-main);
+}
+
+.container {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.attribution {
+  padding-bottom: 1rem;
+  font-size: 0.6875rem;
+  text-align: center;
+  color: var(--color-soft-blue);
+
+  a {
+    color: hsl(228, 45%, 44%);
+  }
+}
+
+.img-fluid {
+  display: block;
+  max-width: 100%;
+}
+
+.card {
+  width: 96%;
+  max-width: 20.625rem;
+  background-color: var(--color-dark-blue-card);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 1rem 1rem 1rem rgba(#000, 0.3);
+  color: var(--color-soft-blue);
+
+  @media (min-width: 540px) {
+    max-width: 21.875rem;
+  }
+
+  &__image {
+    border-radius: 0.625rem;
+    overflow: hidden;
+    cursor: pointer;
+    margin-bottom: 1.625rem;
+    position: relative;
+
+    &::before {
+      content: "";
+      width: 150%;
+      height: 150%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      background: hsla(178, 100%, 50%, 0.5);
+      border-radius: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      transform-origin: center;
+      transition: transform 0.4s ease;
+    }
+
+    &::after {
+      content: "";
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      background: url("../images/icon-view.svg") center no-repeat;
+      left: 0;
+      top: 0;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    &:hover::before {
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    &:hover::after {
+      opacity: 1;
+    }
+  }
+
+  &__title {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.375rem;
+    font-weight: 600;
+    line-height: 1;
+    color: var(--color-white);
+
+    @media (min-width: 540px) {
+      margin-bottom: 1.25rem;
+    }
+  }
+
+  &__desc {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    line-height: 1.5;
+
+    @media (min-width: 540px) {
+      font-size: 1.125rem;
+      line-height: 1.4;
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  &__info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+
+    @media (min-width: 540px) {
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  &__value {
+    background: url("../images/icon-ethereum.svg") left center no-repeat;
+    padding-left: 1.125rem;
+    color: var(--color-cyan);
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  &__date {
+    background: url("../images/icon-clock.svg") left center no-repeat;
+    padding-left: 1.375rem;
+    font-size: 1rem;
+    letter-spacing: 0.01em;
+  }
+
+  &-author {
+    border-top: 0.0625rem solid var(--color-dark-blue-line);
+    display: flex;
+    align-items: center;
+    padding-top: 1rem;
+    padding-bottom: 0.5rem;
+
+    &__image {
+      border-radius: 50%;
+      border: 0.0625rem solid var(--color-white);
+      width: 2.125rem;
+      margin-right: 1rem;
+    }
+
+    &__info {
+      font-size: 1rem;
+    }
+
+    &__name {
+      font-weight: 600;
+    }
+  }
+
+  a {
+    color: var(--color-white);
+    text-decoration: none;
+    transition: color 0.3s;
+
+    &:hover,
+    &:focus {
+      color: var(--color-cyan);
+    }
+  }
+}
